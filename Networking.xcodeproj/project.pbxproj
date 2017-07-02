@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9301B63C1E87536D009CFF07 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		9301B63C1E87536D009CFF07 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Animation.swift; path = ../Animation.swift; sourceTree = "<group>"; };
 		9321A96C1E6E5A0800D96547 /* Posts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Posts.swift; path = Networking/Posts.swift; sourceTree = "<group>"; };
 		93906F331E85D9B90013466C /* ManageThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageThread.swift; sourceTree = "<group>"; };
 		93906F361E85DD2A0013466C /* BaseFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFire.swift; sourceTree = "<group>"; };
@@ -71,21 +71,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		934B38F41F089407002F0DAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9301B63C1E87536D009CFF07 /* Animation.swift */,
+				93D78FCE1E69EC4100F12AF3 /* ViewController.swift */,
+				93D78FE01E69F50800F12AF3 /* MainViewController.swift */,
+				93D78FE21E69F85500F12AF3 /* PostViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		93906F351E85DC5D0013466C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9321A96C1E6E5A0800D96547 /* Posts.swift */,
 				93906F331E85D9B90013466C /* ManageThread.swift */,
 				93906F361E85DD2A0013466C /* BaseFire.swift */,
-				9301B63C1E87536D009CFF07 /* Animation.swift */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		93D78FC01E69EC4100F12AF3 = {
 			isa = PBXGroup;
 			children = (
-				93906F351E85DC5D0013466C /* Models */,
 				93D78FCB1E69EC4100F12AF3 /* Networking */,
 				93D78FCA1E69EC4100F12AF3 /* Products */,
 				6484EB43F5B33CD6736C24D6 /* Pods */,
@@ -104,15 +114,14 @@
 		93D78FCB1E69EC4100F12AF3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				93906F351E85DC5D0013466C /* Models */,
+				934B38F41F089407002F0DAB /* View */,
 				93D78FDE1E69F0E200F12AF3 /* GoogleService-Info.plist */,
 				93D78FCC1E69EC4100F12AF3 /* AppDelegate.swift */,
-				93D78FCE1E69EC4100F12AF3 /* ViewController.swift */,
 				93D78FD01E69EC4100F12AF3 /* Main.storyboard */,
 				93D78FD31E69EC4100F12AF3 /* Assets.xcassets */,
 				93D78FD51E69EC4100F12AF3 /* LaunchScreen.storyboard */,
 				93D78FD81E69EC4100F12AF3 /* Info.plist */,
-				93D78FE01E69F50800F12AF3 /* MainViewController.swift */,
-				93D78FE21E69F85500F12AF3 /* PostViewController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
