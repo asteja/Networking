@@ -66,9 +66,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let postImageView = cell?.viewWithTag(3) as! UIImageView
         postImageView.image = posts[indexPath.row].image
         
-        self.likeCountLabel = cell?.viewWithTag(4) as! UILabel
+        self.likeCountLabel = cell?.viewWithTag(4) as? UILabel
         
-        self.likeButton = cell?.viewWithTag(5) as! UIButton
+        self.likeButton = cell?.viewWithTag(5) as? UIButton
         likeButton.addTarget(self, action: #selector(likePressed), for: .touchUpInside)
         
         cell?.setNeedsDisplay()
@@ -76,7 +76,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell!
     }
     
-    func likePressed() {
+    @objc func likePressed() {
         
         
         self.animateImage.likeButtonCenter = likeButton.center

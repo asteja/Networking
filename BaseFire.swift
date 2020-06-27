@@ -33,7 +33,7 @@ class BaseFire {
         let workItem = DispatchWorkItem { 
             FIRAuth.auth()?.signIn(withEmail: userName, password: password, completion: { (user, error) in
                 if error == nil {
-                    completion!((user, error))
+                    completion!(user, error)
                 }
             })
         }

@@ -49,7 +49,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.duration = 0.6
         animation.values = [-10.0, 10.0, -7.0, 7.0, -5.0, 5.0, 0.0 ]
         userSelectedIV.layer.add(animation, forKey: "shake")
@@ -93,22 +93,22 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true) {[unowned self] in
-            self.userSelectedIV.image = info[UIImagePickerControllerOriginalImage] as! UIImage?
-            self.imageURL = info[UIImagePickerControllerReferenceURL] as! URL
+            self.userSelectedIV.image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage?
+            self.imageURL = info[UIImagePickerController.InfoKey.referenceURL.rawValue] as! URL
 
             self.imageTitle = NSUUID().uuidString
             let storageRef = self.storage.reference().child(self.imageTitle)
             
             
             
-            let data = UIImagePNGRepresentation(self.userSelectedIV.image!)
+            let data = self.userSelectedIV.image!.pngData()
             
             let workItem = DispatchWorkItem(block: { 
                 let upload = storageRef.put(data!, metadata: nil) { (metadata, error) in
                     if error != nil {
-                        print(error)
+                        print(error!.localizedDescription)
                     }
                     else {
                         print("successfully uploaded")
